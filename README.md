@@ -39,8 +39,8 @@ add action=mark-connection chain=prerouting comment=Twitter content=twitter dst-
 add action=mark-connection chain=prerouting content=twimg.com dst-port=80,443 new-connection-mark=twitter_connection passthrough=no protocol=tcp
 
 /queue simple
-add name=”YOUTUBE” target=192.168.88.0/24 parent=none packet-marks=youtube_packets priority=8/8 queue=default/default limit-at=0/0 max-limit=50M/50M burst-limit=0/0 burst-threshold=0/0 burst-time=0s/0s bucket-size=0.1/0.1 total-queue=default
+add name="YOUTUBE" target=192.168.88.0/24 parent=none packet-marks=youtube_packets priority=8/8 queue=default/default limit-at=0/0 max-limit=50M/50M burst-limit=0/0 burst-threshold=0/0 burst-time=0s/0s bucket-size=0.1/0.1 total-queue=default
 
-add name=”NETFLIX” target=192.168.88.0/24 parent=none packet-marks=netflix_packets priority=8/8 queue=default/default limit-at=0/0 max-limit=50M/50M burst-limit=0/0 burst-threshold=0/0 burst-time=0s/0s bucket-size=0.1/0.1 total-queue=default
+add name="NETFLIX" target=192.168.88.0/24 parent=none packet-marks=netflix_packets priority=8/8 queue=default/default limit-at=0/0 max-limit=50M/50M burst-limit=0/0 burst-threshold=0/0 burst-time=0s/0s bucket-size=0.1/0.1 total-queue=default
 
 ```
