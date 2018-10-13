@@ -1,6 +1,19 @@
 # Mikrotik-Example-Firewall-Filter
 A collection of useful Mikrotik Firewall Filter/Rules
 
+### Firewall Security best-practices
+```console
+/ip firewall filter
+add action=drop chain=input comment="drop Invalid connections" connection-state=invalid
+add chain=input comment="allow Established connections" connection-state=established
+add chain=input comment="allow remote administration from mikrotik office or other whitelists"\
+	src-address=159.148.147.0/24
+add chain=input comment="allow pings ICMP" protocol=icmp
+add chain=input comment="Allow DNS requests from LAN. You can add other services like VPN, Proxy, OSPF etc" dst-port=53\
+	in-interface=!ether-wan src-address=192.168.199.0/24
+add action=drop chain=input comment="drop everything else"
+```
+
 ### Social & Streaming Filter/Queue 
 ```console
 
